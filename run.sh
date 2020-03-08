@@ -16,4 +16,3 @@ docker run -d \
         -v ./etc/nginx.conf:/etc/nginx/nginx.conf:ro \
         -v ./usr/share/nginx/html:/usr/share/nginx/html:ro \
         nginx
-~             

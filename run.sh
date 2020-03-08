@@ -2,7 +2,6 @@
 docker stop nginx
 
 docker run -d \
-        --rm \
         -p 80:80 -p 443:443 \
         --hostname nginx \
         --name nginx \

@@ -1,4 +1,6 @@
 #!/bin/bash
+cwd=$(pwd)
+
 docker stop nginx
 
 docker run -d \
@@ -7,11 +9,11 @@ docker run -d \
         --name nginx \
         --restart=always \
         --network internal \
-        -v ./opt/ssl:/etc/nginx/ssl:ro \
-        -v ./var/log/nginx:/var/log/nginx \
-        -v ./etc/conf.d/:/etc/nginx/conf.d:ro \
-        -v ./etc/common.d/:/etc/nginx/common.d:ro \
-        -v ./etc/default.d/:/etc/nginx/default.d:ro \
-        -v ./etc/nginx.conf:/etc/nginx/nginx.conf:ro \
-        -v ./usr/share/nginx/html:/usr/share/nginx/html:ro \
+        -v $cwd/opt/ssl:/etc/nginx/ssl:ro \
+        -v $cwd/var/log/nginx:/var/log/nginx \
+        -v $cwd/etc/conf.d/:/etc/nginx/conf.d:ro \
+        -v $cwd/etc/common.d/:/etc/nginx/common.d:ro \
+        -v $cwd/etc/default.d/:/etc/nginx/default.d:ro \
+        -v $cwd/etc/nginx.conf:/etc/nginx/nginx.conf:ro \
+        -v $cwd/usr/share/nginx/html:/usr/share/nginx/html:ro \
         nginx
